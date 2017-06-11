@@ -1,7 +1,7 @@
 {
-  "name": "project",
+  "name": "boilerplate-react-redux",
   "version": "1.0.0",
-  "description": "realty listing",
+  "description": "boilerplate-react-redux",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --hot --progress --colors --inline --open",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/whitzhu/project.git"
+    "url": "git+ssh://git@github.com/whitzhu/boilerplate-react-redux.git"
   },
   "author": "whitney zhu",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/whitzhu/project/issues"
+    "url": "https://github.com/whitzhu/boilerplate-react-redux/issues"
   },
-  "homepage": "https://github.com/whitzhu/project#readme",
+  "homepage": "https://github.com/whitzhu/boilerplate-react-redux#readme",
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "express": "^4.15.3",
