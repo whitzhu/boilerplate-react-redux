@@ -1,6 +1,6 @@
-# Project Title
+# Boilerplate-react-redux
 
-Description of Site.
+Simple react-redux boilerplate.
 
 ![App Screenshoot](link)
 
@@ -15,8 +15,8 @@ For development, you will only need [Node.js](http://nodejs.org/) installed on y
 ### Installing
 
 ```sh
-$ git clone https://github.com/whitzhu/project.git
-$ cd project
+$ git clone https://github.com/whitzhuboilerplate-react-redux.git
+$ cd boilerplate-react-redux
 $ npm install
 ```
 
@@ -55,7 +55,7 @@ npm run test
 
 * **Whitney Zhu** 
 
-See also the list of [contributors](https://github.com/whitzhu/projectitle/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/whitzhu/boilerplate-react-redux/contributors) who participated in this project.
 
 
 ## Acknowledgments
