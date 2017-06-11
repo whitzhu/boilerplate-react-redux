@@ -1,0 +1,14 @@
+@import './global-variables.scss';
+
+body, html {
+  overflow-x:hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: $font-family-primary;
+  font-size: 16px;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
