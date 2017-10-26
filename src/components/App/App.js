@@ -1,4 +1,5 @@
 import React from 'react';
+import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
@@ -6,12 +7,12 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import reducer from '../../reducers';
 import Routes from '../../components/Routes/Routes';
+import './app.scss';
 
-require('./app.scss');
-
+const middlewares = [thunk, logger];
 const store = createStore(
   reducer,
-  applyMiddleware(logger),
+  applyMiddleware(middlewares),
 );
 
 const App = () => (
