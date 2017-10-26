@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "webpack-dev-server --hot --progress --colors --inline --open",
     "dev-build": "NODE_ENV=development webpack --watch --progress --colors ",
-    "dev-start": "nodemon server/index.js || open http://localhost:3000",
+    "dev-start": "NODE_ENV=development nodemon server/index.js",
     "start": "grunt && node server/index.js",
-    "build": "webpack -p --progress --colors",
+    "build": "NODE_ENV=production webpack -p --progress --colors",
     "test": "NODE_ENV=test mocha --compilers js:babel-core/register --require babel-polyfill --require ./test/helpers.js --require ./test/dom.js --require ignore-styles test/*-test.js -R nyan"
   },
   "repository": {
@@ -24,6 +24,7 @@
   "dependencies": {
     "babel-polyfill": "^6.23.0",
     "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
     "express": "^4.15.3",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
