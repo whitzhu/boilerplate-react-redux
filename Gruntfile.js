@@ -10,7 +10,7 @@ module.exports = function(grunt) {
           sourceMapName: 'js/map/bundle.map',
         },
         files: {
-          'public/js/bundle.min.js': ['public/js/bundle.js']
+          'public/js/bundle.min.js': ['public/js/bundle.js'],
         },
       },
     },
@@ -21,21 +21,27 @@ module.exports = function(grunt) {
           annotation: 'public/css/maps/',
         },
         processors: [
-          require('pixrem')(), 
-          require('autoprefixer')({browsers: 'last 2 versions'}),
-          require('cssnano')()
+          require('pixrem')(),
+          require('autoprefixer')({ browsers: 'last 2 versions' }),
+          require('cssnano')(),
         ],
       },
       dist: {
         src: 'public/css/*.css',
       },
     },
+    shell: {
+      build: {
+        command: 'npm run build',
+      },
+    },
   });
 
   // Load the plugin that provides the post-css task
+  grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-postcss');
 
   // Default task(s)
-  grunt.registerTask('default', ['postcss', 'uglify']);
+  grunt.registerTask('default', ['shell', 'postcss', 'uglify']);
 };

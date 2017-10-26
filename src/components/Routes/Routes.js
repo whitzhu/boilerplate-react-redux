@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import DashboardComponent from '../../containers/DashboardComponent/DashboardComponent';
+import HomepageComponent from '../../containers/HomepageComponent/HomepageComponent';
 
 const Routes = () => (
   <div className="app">
-    <Route exact path="/" component={DashboardComponent} />
+    <Route exact path="/" component={HomepageComponent} />
   </div>
 );
 

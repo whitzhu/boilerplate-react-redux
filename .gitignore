@@ -1,10 +1,15 @@
+.env
 logs
 *.log
+*.map
 npm-debug.log*
 .npm
 .grunt
 /node_modules
-public/css
+public/css/style.css
 public/js
+server/db/config.json
+*hot-update.json
+*hot-update.js
+*hot-update.js.map
 .DS_Store
-
