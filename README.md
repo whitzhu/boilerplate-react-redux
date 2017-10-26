@@ -44,6 +44,7 @@ npm run test
 * [React](https://facebook.github.io/react/) - Frontend Framework
 * [SASS](http://sass-lang.com/) - Styling
 * [Express](https://expressjs.com/) - Server Framework
+* [Sequelize](http://docs.sequelizejs.com/) - ORM
 * [Node](https://nodejs.org/) - Server
 * [Webpack](https://webpack.github.io/) - Module Bundler
 * [Grunt](https://gruntjs.com/) - Task Runner for PostCSS processing, minification, and compilation
