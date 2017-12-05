@@ -1,28 +1,37 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux';
+import createHistory from 'history/createBrowserHistory';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import { BrowserRouter as Router } from 'react-router-dom';
 
-import reducer from '../../reducers';
+import reducers from '../../reducers';
 import Routes from '../../components/Routes/Routes';
 import './app.scss';
 
-const middlewares = [thunk, logger];
+const history = createHistory();
+const middleware = [thunk, logger, routerMiddleware(history)];
 const store = createStore(
-  reducer,
-  applyMiddleware(middlewares),
+  combineReducers({
+    ...reducers,
+    router: routerReducer,
+  }),
+  applyMiddleware(...middleware),
 );
 
-const App = () => (
-  <Provider store={store}>
-    <Router>
-      <div className="app-container">
-        <Routes />
-      </div>
-    </Router>
-  </Provider>
-);
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <div className="app-container">
+            <Routes />
+          </div>
+        </ConnectedRouter>
+      </Provider>
+    );
+  }
+}
 
 export default App;

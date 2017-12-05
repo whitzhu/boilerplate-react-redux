@@ -1,12 +1,17 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
 
 import HomepageComponent from '../../containers/HomepageComponent/HomepageComponent';
 
+const ConnectedSwitch = connect(state => ({
+  location: state.location,
+}))(Switch);
+
 const Routes = () => (
-  <div className="app">
+  <ConnectedSwitch>
     <Route exact path="/" component={HomepageComponent} />
-  </div>
+  </ConnectedSwitch>
 );
 
 export default Routes;
