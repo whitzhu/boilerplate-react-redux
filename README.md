@@ -24,13 +24,13 @@ $ npm install
 ### Run dev Server
 
 ```
-npm run dev
+npm run dev-start
 ```
 
 ### Simple Build for production
 
 ```
-npm run build
+npm run dev-build
 ```
 
 ### Running the tests
@@ -60,8 +60,3 @@ See also the list of [contributors](https://github.com/whitzhu/boilerplate-react
 
 
 ## Acknowledgments
-
-
-
-
-
