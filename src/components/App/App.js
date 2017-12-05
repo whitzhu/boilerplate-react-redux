@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
-import createHistory from 'history/createBrowserHistory';
 import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux';
-import { persistStore, autoRehydrate } from 'redux-persist';
+import createHistory from 'history/createBrowserHistory';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
@@ -13,7 +12,7 @@ import './app.scss';
 
 const history = createHistory();
 const middleware = [thunk, logger, routerMiddleware(history)];
-const store = compose(autoRehydrate())(createStore)(
+const store = createStore(
   combineReducers({
     ...reducers,
     router: routerReducer,
@@ -22,21 +21,7 @@ const store = compose(autoRehydrate())(createStore)(
 );
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { rehydrated: false };
-  }
-
-  componentWillMount() {
-    persistStore(store, {}, () => {
-      this.setState({ rehydrated: true });
-    });
-  }
-
   render() {
-    if (!this.state.rehydrated) {
-      return (<div>Loading...</div>);
-    }
     return (
       <Provider store={store}>
         <ConnectedRouter history={history}>
