@@ -14,6 +14,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('*', (req, res) => res.sendFile(path.join(__dirname, '/../public/index.html')));
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log(`Boilerplate-react-redux is listenting on PORT ${process.env.port || 3000}`);
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+  console.log(`Boilerplate-react-redux is listenting on PORT ${port}`);
 });
