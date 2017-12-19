@@ -7,7 +7,7 @@ const SRC_DIR = path.join(__dirname, '/src');
 const DIST_DIR = path.join(__dirname, '/public');
 
 const pathsToClean = [
-  'public/*.json',
+  'public/*.hot-update.js',
 ];
 
 module.exports = {
