@@ -3,10 +3,18 @@ const path = require('path');
 const favicon = require('serve-favicon');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const webpack = require('webpack');
+const webpackConfig = require('../webpack.config');
 // const models = require('../db/models');
 const app = express();
 
+const compiler = webpack(webpackConfig);
+
 require('dotenv').load();
+
+app.use(require('webpack-dev-middleware')(compiler, {
+  noInfo: true, publicPath: webpackConfig.output.publicPath,
+}));
 
 // Datebase
 // models.sequelize.sync()

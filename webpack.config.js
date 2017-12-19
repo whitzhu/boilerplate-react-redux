@@ -7,14 +7,14 @@ const SRC_DIR = path.join(__dirname, '/src');
 const DIST_DIR = path.join(__dirname, '/public');
 
 const pathsToClean = [
-  'public/*.json',
+  'public/*.hot-update.js',
 ];
 
 module.exports = {
   devtool: 'eval-source-map',
   entry: [
     'babel-polyfill',
-    'react-hot-loader/patch',
+    'webpack-hot-middleware/client',
     './src/index.js',
   ],
   output: {
