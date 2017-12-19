@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --hot --progress --colors --inline --open",
-    "dev-build": "NODE_ENV=development webpack --watch --progress --colors ",
     "dev-start": "NODE_ENV=development nodemon server/index.js",
     "start": "grunt && node server/index.js",
     "build": "NODE_ENV=production webpack -p --progress --colors",
