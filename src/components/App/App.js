@@ -1,34 +1,35 @@
 import React, { Component } from 'react';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux';
-import createHistory from 'history/createBrowserHistory';
-import thunk from 'redux-thunk';
-import logger from 'redux-logger';
+import { PersistGate } from 'redux-persist/es/integration/react';
+import { ConnectedRouter } from 'react-router-redux';
+import { history, store, persistor } from '../../util/store';
 
-import reducers from '../../reducers';
 import Routes from '../../components/Routes/Routes';
 import './app.scss';
 
-const history = createHistory();
-const middleware = [thunk, logger, routerMiddleware(history)];
-const store = createStore(
-  combineReducers({
-    ...reducers,
-    router: routerReducer,
-  }),
-  applyMiddleware(...middleware),
+const Loading = () => (
+  <div>Loading...</div>
 );
+
+const onBeforeLift = () => {
+  console.log("onBeforeLift");
+};
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <ConnectedRouter history={history}>
-          <div className="app-container">
-            <Routes />
-          </div>
-        </ConnectedRouter>
+        <PersistGate
+          loading={<Loading />}
+          onBeforeLift={onBeforeLift}
+          persistor={persistor}
+        >
+          <ConnectedRouter history={history}>
+            <div className="app-container">
+              <Routes />
+            </div>
+          </ConnectedRouter>
+        </PersistGate>
       </Provider>
     );
   }
