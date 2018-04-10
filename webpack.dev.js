@@ -8,10 +8,15 @@ const DIST_DIR = path.join(__dirname, '/public');
 
 const pathsToClean = [
   'public/*.hot-update.js',
+  'public/*.hot-update.js.map',
+  'public/css/style.*',
+  'public/js/app.*',
+  'public/js/vendor.*',
 ];
 
 module.exports = {
-  devtool: 'eval-source-map',
+  mode: 'development',
+  devtool: 'source-map',
   entry: [
     'babel-polyfill',
     'webpack-hot-middleware/client',
@@ -36,21 +41,12 @@ module.exports = {
     { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=[name].[ext]' },
     ],
   },
-  node: {
-    console: true,
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty',
-  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(pathsToClean),
     new ExtractTextPlugin({
       filename: 'css/style.css',
       allChunks: true,
-    }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production'),
     }),
   ],
   devServer: {

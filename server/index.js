@@ -4,7 +4,7 @@ const favicon = require('serve-favicon');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const webpack = require('webpack');
-const webpackConfig = require('../webpack.config');
+const webpackConfig = require('../webpack.dev');
 // const models = require('../db/models');
 const app = express();
 

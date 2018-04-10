@@ -4,7 +4,6 @@ import createHistory from 'history/createBrowserHistory';
 import { persistStore, persistCombineReducers } from 'redux-persist';
 import storage from 'redux-persist/es/storage';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import reducers from '../reducers';
 
@@ -14,7 +13,7 @@ const config = {
 };
 
 export const history = createHistory();
-const middleware = [thunk, logger, routerMiddleware(history)];
+const middleware = [thunk, routerMiddleware(history)];
 const reducer = persistCombineReducers(config, reducers);
 export const store = createStore(
   reducer,
